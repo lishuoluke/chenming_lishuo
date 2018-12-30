@@ -1,0 +1,49 @@
+package co.grab;
+
+public class MysteryNumber {
+
+	int answer;
+	int upper = 100;
+	int lower = 1;
+
+	public void setMysteryNumber(Integer mysteryNumber) {
+		 answer = mysteryNumber;
+		 upper = 100; // everytime set the new number need to reset the upper and lower
+		 lower = 1;
+	}
+
+	public String playMysteryNumber(int mysteryNumber) {
+
+		//if (answer == 1){
+		//	lower = 0;
+
+		//}
+		if (mysteryNumber >= upper| mysteryNumber <= lower) {
+
+			return "Invalid";
+		}
+		if (mysteryNumber < answer){
+
+			lower = mysteryNumber;
+			if (upper - lower == 1){
+				return "The next player is the loser";
+			}
+			else return Integer.toString(lower)+ " to " + Integer.toString(upper);
+		}
+		if (mysteryNumber > answer){
+
+			upper = mysteryNumber;
+			if (upper - lower == 1){
+				return "The next player is the loser";
+			}
+			else return Integer.toString(lower)+ " to " + Integer.toString(upper);
+		}
+		if (mysteryNumber == answer){
+			return "You are the loser" ;
+		}
+
+
+		return null;
+	}
+
+}
